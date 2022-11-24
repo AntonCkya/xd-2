@@ -75,10 +75,10 @@ def get_all_in_date(date_1: date, date_2: date):
 
 
 def get_movie_by_name(name: str):
-    sel = select([Movie]).where(Movie.c.title == name)
+    sel = select([Movie]).where(Movie.c.title.like("%{name}%".format(name=name)))
     conn = engine.connect()
     r = conn.execute(sel)
-    return r.fetchone()
+    return r.fetchall()
 
 
 # Country
@@ -102,10 +102,10 @@ def get_country (id: int):
 
 
 def get_country_by_name (name: str):
-    sel = select([Country]).where(Country.c.country == name)
+    sel = select([Country]).where(Country.c.country.like("%{name}%".format(name=name)))
     conn = engine.connect()
     r = conn.execute(sel)
-    return r.fetchone()
+    return r.fetchall()
 
 
 def get_all_countries ():
@@ -161,10 +161,10 @@ def get_genre (id: int):
 
 
 def get_genre_by_name (name: str):
-    sel = select([Genre]).where(Genre.c.genre == name)
+    sel = select([Genre]).where(Genre.c.genre.like("%{name}%".format(name=name)))
     conn = engine.connect()
     r = conn.execute(sel)
-    return r.fetchone()
+    return r.fetchall()
 
 
 def get_all_genres ():
