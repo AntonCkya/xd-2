@@ -102,10 +102,10 @@ def get_country (id: int):
 
 
 def get_country_by_name (name: str):
-    sel = select([Country]).where(Country.c.country.like("%{name}%".format(name=name)))
+    sel = select([Country]).where(Country.c.country == name)
     conn = engine.connect()
     r = conn.execute(sel)
-    return r.fetchall()
+    return r.fetchone()
 
 
 def get_all_countries ():
@@ -161,10 +161,10 @@ def get_genre (id: int):
 
 
 def get_genre_by_name (name: str):
-    sel = select([Genre]).where(Genre.c.genre.like("%{name}%".format(name=name)))
+    sel = select([Genre]).where(Genre.c.genre == name)
     conn = engine.connect()
     r = conn.execute(sel)
-    return r.fetchall()
+    return r.fetchone()
 
 
 def get_all_genres ():

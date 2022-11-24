@@ -1,3 +1,6 @@
 */__pycache__/*
 venv/*
 main.cpython-310.pyc
+Dockerfile
+.gitignore
+requirements.txt
