@@ -33,7 +33,7 @@ def get_user (id: int):
 
 
 def get_user_by_name (name: str):
-    sel = select([User]).where(User.c.name == name)
+    sel = select([User]).where(User.c.name.like("%{name}%".format(name=name)))
     conn = engine.connect()
     r = conn.execute(sel)
     return r.fetchone()
