@@ -39,7 +39,8 @@ Movie = Table('movie', metadata,
     Column('cover', String(255), nullable=False),
     Column('premiere_date',Date(), nullable=False),
     Column('producer', String(127), nullable=False),
-    Column('popularity', Integer(), nullable=False)
+    Column('popularity', Integer(), nullable=False),
+    Column('age', Integer(), nullable=False),
 )
 
 Country = Table('country', metadata,

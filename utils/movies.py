@@ -19,7 +19,8 @@ def create_movie (movie: movie_schema):
         cover = movie.cover,
         premiere_date = movie.premiere_date,
         producer = movie.producer,
-        popularity = movie.popularity
+        popularity = movie.popularity,
+        age = movie.age
     )
     conn = engine.connect()
     r = conn.execute(ins)
@@ -71,6 +72,13 @@ def get_all_in_date(date_1: date, date_2: date):
     conn = engine.connect()
     r = conn.execute(sel)
     return r.fetchall()
+
+
+def get_movie_by_name(name: str):
+    sel = select([Movie]).where(Movie.c.title == name)
+    conn = engine.connect()
+    r = conn.execute(sel)
+    return r.fetchone()
 
 
 # Country

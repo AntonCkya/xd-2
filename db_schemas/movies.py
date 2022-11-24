@@ -11,6 +11,7 @@ class Movie (BaseModel):
     premiere_date : date
     producer : str
     popularity : int
+    age : int
 
 
 class Country (BaseModel):
@@ -29,6 +30,7 @@ class Movie_all (BaseModel):
     premiere_date : date
     producer : str
     popularity : int
+    age : int
     country : List[str]
     genre : List[str]
 
@@ -41,7 +43,8 @@ def movie_all_to_movie (movie_all: Movie_all) -> Movie:
         cover = movie_all.cover,
         premiere_date = movie_all.premiere_date,
         producer = movie_all.producer,
-        popularity = movie_all.popularity
+        popularity = movie_all.popularity,
+        age = movie_all.age
     )
     return movie
 

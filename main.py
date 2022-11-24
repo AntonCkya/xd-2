@@ -104,6 +104,14 @@ async def get_movie_all():
     return {"204": "No Content"}
 
 
+@app.get('/movie/get/title/', tags=["movie"])
+async def get_movie_by_title(name: str):
+    res = movie_utils.get_movie_by_name(name)
+    if res != None:
+        return res
+    return {"204": "No Content"}
+
+
 @app.get('/movie/get/country/', tags=["movie"])
 async def get_movie_by_country(country: str):
     cntr = movie_utils.get_country_by_name(country)
@@ -293,7 +301,7 @@ def custom_openapi():
 		return app.openapi_schema
 	openapi_schema = get_openapi(
     	title="[ xd ]",
-		version="0.0.1",
+		version="0.0.2",
 		description="API к онлайн-кинотеатру [ xd ]",
 		routes=app.routes,
 	)
