@@ -5,6 +5,7 @@ from datetime import datetime
 class Comment (BaseModel):
     movie_id: int
     user_id: int
+    user_name: str
     text: str
     publication_date: datetime
 

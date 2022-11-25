@@ -81,6 +81,7 @@ Comment = Table('comment', metadata,
     Column('id', Integer(), nullable=False, unique=True, primary_key=True, autoincrement=True),
     Column('movie_id', ForeignKey('movie.id'), nullable=False, primary_key=True),
     Column('user_id', ForeignKey('my_user.id'), nullable=False, primary_key=True),
+    Column('user_name', ForeignKey('my_user.name'), nullable=False, primary_key=True),
     Column('text', Text(), nullable=False),
     Column('publication_date', DateTime(), nullable=False)
 )

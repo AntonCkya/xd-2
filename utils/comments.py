@@ -14,6 +14,7 @@ def create_comment(comment: comment_schema):
     ins = insert(Comment).values(
         movie_id = comment.movie_id,
         user_id = comment.user_id,
+        user_name = comment.user_name,
         text = comment.text,
         publication_date = comment.publication_date
     )
