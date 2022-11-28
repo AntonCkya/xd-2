@@ -6,7 +6,7 @@ from db_schemas.users import User as user_schema
 from db_schemas.users import Movie_Rating as rating_schema
 
 from models.db_engine import engine
-from models.movies import User, Movie_Rating
+from models.users import User, Movie_Rating
 
 import hashlib
 

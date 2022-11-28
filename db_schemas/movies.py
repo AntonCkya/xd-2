@@ -22,6 +22,7 @@ class Genre (BaseModel):
     genre: str
 
 
+# Схема для получения у фильма вместе с ним его страны и жанры
 class Movie_all (BaseModel):
     id: int
     title : str
@@ -35,6 +36,7 @@ class Movie_all (BaseModel):
     genre : List[str]
 
 
+#Адаптеры movie_all в вид movie или извлечение оттуда жанров/стран
 def movie_all_to_movie (movie_all: Movie_all) -> Movie:
     movie = Movie(
         id = movie_all.id,

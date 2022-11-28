@@ -6,7 +6,7 @@ from db_schemas.comments import Comment as comment_schema
 from db_schemas.comments import Comment_Rating as rating_schema
 
 from models.db_engine import engine
-from models.movies import Comment, Comment_Rating
+from models.comments import Comment, Comment_Rating
 
 
 #Comment

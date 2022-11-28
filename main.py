@@ -23,6 +23,9 @@ from db_schemas.movies import movie_all_to_genres, movie_all_to_countries, movie
 
 import hashlib
 
+from models.db_engine import metadata, engine
+metadata.create_all(engine)
+
 app = FastAPI()
 
 origins = [

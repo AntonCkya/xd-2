@@ -10,7 +10,7 @@ from sqlalchemy import (
     ForeignKey
 )
 from datetime import date, datetime
-from models.db_engine import engine
+from models.db_engine import engine, metadata
 
 """
 Таблица Movie:
@@ -21,16 +21,13 @@ cover - URL Ссылка на изображение (постер)
 premiere_date - Дата выхода фильма (YYYY-MM-DD)
 producer - Режиссёр
 popularity - Популярность (параметр зависит от частоты заходов на страницу фильма или как-то ещё хз, как Никита решит)
+age - разрешенный для просмотра возраст
 
 Таблицы Country и Genre содержат списки стран и жанров соответственно (с закрепленными за ними id)
 
 Таблицы Movie_Country и Movie_Genre служат для связи many-to-many между таблицами фильмов и стран/жанров
 У каждого фильма может быть несколько жанров и стран производства
-
-Таблицы ниже для Юзеров, комментов, и рейтингов фильмов и комментов
 """
-
-metadata = MetaData()
 
 Movie = Table('movie', metadata, 
     Column('id', Integer(), nullable=False, unique=True, primary_key=True),
@@ -62,34 +59,3 @@ Movie_Genre = Table('movie_genre', metadata,
     Column('movie_id', ForeignKey('movie.id'), nullable=False, primary_key=True),
     Column('genre_id', ForeignKey('genre.id'), nullable=False, primary_key=True)
 )
-
-User = Table('my_user', metadata,
-    Column('id', Integer(), nullable=False, unique=True, primary_key=True, autoincrement=True),
-    Column('name', String(127), nullable=False, primary_key=True, unique=True),
-    Column('email', String(255), nullable=False, unique=True),
-    Column('registration_date', DateTime(), nullable=False),
-    Column('hashpass', String(255), nullable=False),
-)
-
-Movie_Rating = Table('movie_rating', metadata,
-    Column('movie_id', ForeignKey('movie.id'), nullable=False, primary_key=True),
-    Column('user_id', ForeignKey('my_user.id'), nullable=False, primary_key=True),
-    Column('rate', Integer(), nullable=False)
-)
-
-Comment = Table('comment', metadata,
-    Column('id', Integer(), nullable=False, unique=True, primary_key=True, autoincrement=True),
-    Column('movie_id', ForeignKey('movie.id'), nullable=False, primary_key=True),
-    Column('user_id', ForeignKey('my_user.id'), nullable=False, primary_key=True),
-    Column('user_name', ForeignKey('my_user.name'), nullable=False, primary_key=True),
-    Column('text', Text(), nullable=False),
-    Column('publication_date', DateTime(), nullable=False)
-)
-
-Comment_Rating = Table('comment_rating', metadata,
-    Column('user_id', ForeignKey('my_user.id'), nullable=False, primary_key=True),
-    Column('comment_id', ForeignKey('comment.id'), nullable=False, primary_key=True),
-    Column('rate', Integer(), nullable=False)
-)
-
-metadata.create_all(engine)
