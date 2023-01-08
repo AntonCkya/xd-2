@@ -19,3 +19,7 @@ python create_db.py
 uvicorn main:app --reload
 ```
 ![alt-текст](https://img.shields.io/badge/Python-3776AB?style=for-the-badge&logo=python&logoColor=white) ![alt-текст](https://img.shields.io/badge/postgres-%23316192.svg?style=for-the-badge&logo=postgresql&logoColor=white)
+
+
+Схема базы данных:      
+![alt-текст](database_schema.png)
