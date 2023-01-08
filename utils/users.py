@@ -10,6 +10,24 @@ from models.users import User, Movie_Rating
 
 import hashlib
 
+"""
+Модуль для работы с пользователями и их оценками фильмов
+
+User:
+
+create_user - создать пользователя
+get_user - получить пользователя по id
+get_user_by_name - получить пользователя по имени
+get_user_by_email - получить пользователя по email адрессу
+
+
+Movie_Rating:
+
+create_movie_rating - создать оценку фильма от пользователя
+get_user_rates - получить все оценки, сделанные пользователем (по id)
+get_movie_rates - получить все оценки фильму (по id)
+update_movie_rating - изменить оценку фильма от пользователя по id пользователя и фильма
+"""
 
 # User
 def create_user (user: user_schema):

@@ -9,6 +9,50 @@ from db_schemas.movies import Genre as genre_schema
 from models.db_engine import engine
 from models.movies import Movie, Country, Genre, Movie_Country, Movie_Genre
 
+"""
+Модуль для работы с фильмами и их оценками в базе данных
+
+Movie:
+
+create_movie - создать фильм
+get_movie - получить фильм по id
+update_pop - изменить популярность фильма по id
+get_all - получить все фильмы
+get_all_by_pop - получить все фильмы, отсортированные по популярности
+get_all_by_prod - получить все фильмы от данного режиссера
+get_all_in_date - получить все фильмы, вышедшие между date1 и date2
+get_movie_by_name - получить фильм по названию
+
+
+Country:
+
+create_country - создать страну
+get_country - получить страну по id
+get_country_by_name - получить страну по названию
+get_all_countries - получить все страны
+
+
+Movie_Country:
+
+create_movie_country - создать зависимость фильм-страна
+get_all_movie_countries - получить все зависимости с данным id фильма
+get_all_country_movies - получить все зависимости с данным id страны
+
+
+Genre:
+
+create_genre - создать жанр
+get_genre - получить жанр по id
+get_genre_by_name - получить жанр по названию
+get_all_genres - получить все жанры
+
+
+Movie_Genre:
+
+create_movie_genre - создать зависимость фильм-жанр
+get_all_movie_genres - получить все зависимости с данным id фильма
+get_all_genre_movies - получить все зависимости с данным id жанра
+"""
 
 # Movie
 def create_movie (movie: movie_schema):
